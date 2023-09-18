@@ -1,0 +1,1336 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+<body style="background-color: #f4f0ed;">
+    <div id="loading_done">
+        <div id="loading">
+            <div class="loadingImage"><img
+                    src="https://cdn.shopify.com/s/files/1/0428/3727/8877/files/42e55b37-69dd-437f-a523-200c5b1fb90b.gif?v=1644894592"
+                    alt="" style="width:40px">
+            </div>
+        </div>
+    </div>
+
+    <!--     <button id="btn">跳转</button> -->
+    <form action="">
+        <div class="from_box">
+            <div style="
+            margin: auto;
+            width: 301px;
+            text-align: center;
+            margin-bottom: 33px;
+            color: #585967;" id="is-entrance">
+                There might be something wrong with your doorbell. Please send a message to our customer service for
+                more
+                assistant.
+            </div>
+            <span style="color: #000;" id="multilingualName">Name</span><span>(Required)</span><br>
+            <input id="iputName" type="text" placeholder="Your Name">
+            <div class="show">
+                <span id="show_spanOne">Maximum 50 characters.</span>
+                <span id="show_spanTwo">This field is required.</span>
+            </div>
+            <!-- <br> -->
+            <span style="color: #000;" id="multilingualEmail">Email</span> <span>(Required)</span><br>
+            <input type="text" placeholder="name@example.com" id="inputEmail">
+            <div class="emailshow">
+                <span id="email_spanOne">Maximum 50 characters.</span>
+                <span id="email_spanTwo">This field is required.</span>
+                <span id="email_spanThree">Invalid email address</span>
+            </div>
+            <span style="color: #000;" id="multilingualSubject">Subject</span><span>(Required)</span>
+            <div id="selectAfter" style="
+            position: relative;"> <select id="inputSubject" placeholder="Select Subject
+    ">
+                    <option style='display: none' id="0">Select Subject</option>
+                    <option id="1">Return or Replacement</option>
+                    <option id="2">Product</option>
+                    <option id="3">APP</option>
+                    <option id="4">Cloud</option>
+                    <option id="5">Others</option>
+                </select></div>
+            <div class="emailshow">
+                <span id="subject_spanTwo">This field is required.</span>
+            </div>
+            <span style="color: #000;" id="multilingualDetail">Details</span><span>(Required)</span><br>
+            <textarea name="" id="inputDetails" cols="30" rows="10"
+                placeholder="Please describe the problem. "></textarea>
+            <div class="emailshow">
+                <span id="details_spanTwo">This field is required.</span>
+                <span id="details_spanOne">Maximum 1000 characters.</span>
+            </div>
+            <span style="color: #000;" id="multilingualMedia">Media</span>
+            <div class="upload-header" id="upload-header">
+                <div id="centerBox">
+                    <input id="upload" type="file" class="input_flie"
+                        accept="image/png, image/jpeg,video/mp4,video/quicktime" ,capture="camera">
+                    <div id="text_box" style="    margin: auto;
+                    width: 66%;
+                    height: 60px;
+                    z-index: 99999;
+                    display: flex;
+                    align-items: center;    justify-content: center;">
+                        <div class="div_box">
+                            <div class="div_shuline"></div>
+                            <div class="div_hengline"></div>
+                        </div>
+                        <div class="text_box" id="text_boxs"> Add Media</div>
+                    </div>
+                </div>
+                <div class="img-box">
+                </div>
+                <div id="leftBox">
+                    <input id="upload" type="file" class="input_flieone"
+                        accept="image/png, image/jpeg,video/mp4,video/quicktime" ,capture="camera">
+                    <div class="div_boxone">
+                        <div class="div_shulineone"></div>
+                        <div class="div_henglineone"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="showMax" id="showMax">File size cannot be larger than 25MB.</div>
+
+            <span class="grecaptcha-badge" style="display:none"></span>
+        </div>
+    </form>
+
+    <div class="form_btn" id="clickSend"> Send</div>
+
+    <div class="maskLayer" id="showMask">
+        <div class="maskLayer_done">
+            <h1 id="showMask_h1" >Message Sent</h1>
+            <p id="showMask_p">Please check your email box we, will reply in 24 hours</p>
+            <button id="showBtn">Done</button>
+        </div>
+    </div>
+    <div class="maskLayer" id="showError">
+        <div class="maskLayer_done">
+            <h1 id="showError_h1">Error</h1>
+            <p id="showError_p">Please was not sent due to connection issues. Please try again later</p>
+            <button id="showBtnError">Got It</button>
+        </div>
+    </div>
+    <div>
+        <div id="onFeedbackStart"></div>
+        <div id="token"></div>
+        <div id="files"></div>
+        <div id="files[i]"></div>
+        <div id="dosh"></div>
+        <div id="cookie"></div>
+        <div id="url" style="word-wrap: break-word;"></div>
+        <div id="error"></div>
+        <div id="onFeedbackSuccess"></div>
+    </div>
+</body>
+<style>
+    .classAfter::after {
+        display: none !important;
+    }
+
+    #selectAfter::after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 8px solid #000;
+        display: block;
+        position: absolute;
+        top: 25%;
+        right: 7px;
+        transform: translate(-10%, 50%);
+    }
+
+    #loading_done {
+        display: none;
+    }
+
+    #loading {
+        display: none;
+        background: #000;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        opacity: 0.2;
+    }
+
+    .loadingImage {
+        position: relative;
+    }
+</style>
+<style>
+    body,
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .zeizhang {
+        width: 125%;
+        height: 131%;
+        background: #fff;
+        position: absolute;
+        top: -9px;
+        opacity: 0;
+        z-index: 9;
+        left: -7px;
+
+    }
+
+    .showMax {
+        color: red;
+        display: none;
+    }
+
+    #is-entrance {
+        display: none;
+    }
+
+    #iputName {
+        box-sizing: revert;
+        font-size: 14px;
+        border-radius: 4px;
+        width: 97%;
+        height: 36px;
+        border: 1px solid #fff;
+        padding: 10px 7px 9px;
+    }
+
+    #leftBox {
+        position: relative;
+        width: 48px;
+        height: 48px;
+        display: none;
+        float: left;
+    }
+
+    .inputContent {
+        color: #444;
+        border: #999 solid 1px;
+        border-radius: 3px;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        min-width: 50px;
+        max-width: 300px;
+        background: #ffffff;
+    }
+
+    #inputSubject {
+        font-size: 14px;
+        border-radius: 4px;
+        background-color: #fff;
+        color: #464754;
+        height: 36px;
+        border: 1px solid #fff;
+        -webkit-appearance: none;
+        padding-left: 8px;
+        line-height: 36px;
+        /*清除select的边框样式*/
+        /*     border: none; */
+        /*清除select聚焦时候的边框颜色*/
+        outline: none;
+        /*将select的宽高等于div的宽高*/
+        width: 100%;
+        /*隐藏select的下拉图标*/
+        -moz-appearance: none;
+    }
+
+    #inputDetails {
+        box-sizing: revert;
+        font-size: 14px;
+        border-radius: 4px;
+        width: 97%;
+        border: 1px solid #fff;
+        outline: none;
+        padding: 10px 7px 9px;
+        height: 99px;
+    }
+
+    #inputEmail {
+        box-sizing: revert;
+        font-size: 14px;
+        border-radius: 4px;
+        width: 97%;
+        height: 36px;
+        border: 1px solid #fff;
+        padding: 10px 7px 9px;
+    }
+
+    .div_boxone {
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        background: #464754;
+        position: absolute;
+        top: 0px;
+    }
+
+    .div_henglineone {
+        height: 50%;
+        width: 1px;
+        background: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .div_shulineone {
+        width: 50%;
+        height: 1px;
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .input_flieone {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: #464754;
+        opacity: 0;
+        z-index: 9;
+    }
+
+    .maskLayer_done {
+        width: 328px;
+        padding: 27px 57px;
+        background: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .maskLayer_done button {
+        border: none;
+        background: #5069c7;
+        width: 100%;
+        height: 40px;
+        color: #fff;
+        border-radius: 19px;
+    }
+
+    .maskLayer_done h1 {
+        padding-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .maskLayer_done p {
+        padding-bottom: 15px;
+        font-size: 14px;
+    }
+
+    .maskLayer {
+        display: none;
+        width: 100%;
+        height: 100%;
+        z-index: 99999999;
+        position: fixed;
+        top: 0px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .text_box {
+        font-size: 14px;
+        z-index: 999;
+    }
+
+    .img-list {
+        width: 48px;
+        height: 48px;
+        position: relative;
+        display: inline-block;
+        margin-right: 12px;
+    }
+
+    .video_box {
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .img-box {
+        /* width: 33%; */
+        float: left;
+        z-index: 9999999999;
+    }
+
+    .del-img {
+        position: absolute;
+        top: -7px;
+        left: -6px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #464754;
+        z-index: 999;
+        line-height: 20px;
+        text-align: center;
+        font-size: 25px;
+        color: #fff;
+        font-weight: 100;
+    }
+
+    .fileimg {
+        width: 100%;
+        border-radius: 10px;
+        height: 100%;
+    }
+
+    .upload-header {
+        width: 100%;
+        position: relative;
+        height: 72px;
+        background: #fff;
+        border: 1px dashed #ececec;
+        padding: 10px;
+    }
+
+    .div_box {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        background-color: #464754;
+        z-index: 999;
+        position: relative;
+    }
+
+    .div_shuline {
+        position: absolute;
+        width: 50%;
+        height: 2px;
+        background-color: #fff;
+        left: 50%;
+        top: 50%;
+        z-index: 5;
+        transform: translate(-50%, -50%);
+    }
+
+    .div_hengline {
+        position: absolute;
+        width: 2px;
+        height: 50%;
+        background-color: #fff;
+        left: 50%;
+        top: 50%;
+        z-index: 5;
+        transform: translate(-50%, -50%);
+    }
+
+    .input_flie {
+        display: block;
+        width: 56%;
+        height: 50%;
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+    }
+
+    #subject_spanTwo {
+        display: none;
+        color: red;
+    }
+
+    #email_spanThree {
+        display: none;
+        color: red;
+    }
+
+    .emailshow {
+        height: 24px;
+    }
+
+    #details_spanTwo {
+        color: red;
+        display: none;
+    }
+
+    #details_spanOne {
+        color: red;
+        display: none;
+    }
+
+    #email_spanTwo {
+        display: none;
+        color: red;
+    }
+
+    #email_spanOne {
+        display: none;
+        color: red;
+    }
+
+    #show_spanTwo {
+        display: none;
+        color: red;
+    }
+
+    #show_spanOne {
+        display: none;
+        color: red;
+    }
+
+    .show {
+        height: 24px;
+    }
+
+    .form_btn {
+        cursor: pointer;
+        font-size: 16px;
+        width: 215px;
+        height: 40px;
+        border-radius: 20px;
+        border: none;
+        color: #fff;
+        background-color: #5069c7;
+        margin: auto;
+        line-height: 40px;
+        text-align: center;
+        margin-bottom: 57px;
+        margin-top: 24px;
+        z-index: 99999;
+    }
+
+    .from_box span {
+        color: #c3c1c1;
+        font-size: 14px;
+    }
+
+    .from_box input {
+        outline: none !important;
+        -webkit-user-select: text !important;
+    }
+
+    .from_box input:focus {
+        border-color: #d4d4d4 !important;
+    }
+
+    .from_box {
+        padding-top: 50px;
+        font-size: 14px;
+        width: 542px;
+        margin: auto;
+        color: #585967;
+    }
+
+    #deleted {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        .from_box {
+            width: 540px;
+        }
+    }
+
+    @media screen and (max-width: 414px) {
+        .upload-header {
+            width: 334px;
+        }
+
+        #inputSubject {
+            width: 356px;
+        }
+
+        #inputDetails {
+            width: 356px;
+        }
+
+        .from_box {
+            width: 356px;
+        }
+
+        #iputName {
+            width: 356px;
+        }
+
+        #inputEmail {
+            width: 356px;
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        .maskLayer_done {
+            /*             width: 51%; */
+            padding: 27px 70px;
+        }
+
+        .from_box {
+            width: 334px;
+        }
+
+        #iputName {
+            width: 336px;
+        }
+
+        #inputEmail {
+            width: 336px;
+        }
+
+        #inputSubject {
+            width: 334px;
+        }
+
+        #inputDetails {
+            width: 336px;
+        }
+
+        .upload-header {
+            width: 312px;
+        }
+
+        .form_btn {
+            width: 215px;
+            height: 40px;
+        }
+    }
+</style>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    "use strict";
+
+    // 获取url传值
+    function GetRequest() {
+        var url = decodeURI(location.search);
+
+        var theRequest = {};
+        if (url.indexOf("?") != -1) {
+            //获取url中"?"符后的字串
+            var str = url.substr(1);
+            var strs = str.split("&"); //通过&切割
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = strs[i].split("=")[1]; //赋值
+            }
+        }
+        return theRequest;
+    }
+    var linkParameters = GetRequest();
+    var inputSubject = document.getElementById('inputSubject');
+    var subject_spanTwo = document.getElementById('subject_spanTwo');
+    var preview = document.getElementById("previewImg");
+    var show_spanOne = document.getElementById('show_spanOne');
+    var show_spanTwo = document.getElementById('show_spanTwo');
+    var iputName = document.getElementById('iputName');
+    var inputEmail = document.getElementById('inputEmail');
+    var email_spanOne = document.getElementById('email_spanOne');
+    var email_spanTwo = document.getElementById('email_spanTwo');
+    var email_spanThree = document.getElementById('email_spanThree');
+    var inputDetails = document.getElementById('inputDetails');
+    var multilingualName = document.getElementById('multilingualName')
+    var multilingualEmail = document.getElementById('multilingualEmail')
+    var multilingualSubject = document.getElementById('multilingualSubject')
+    var multilingualDetail = document.getElementById('multilingualDetail')
+    var multilingualMedia = document.getElementById('multilingualMedia')
+    var multilingualSend = document.getElementById('clickSend')
+    var multilingualAdd = document.getElementById('text_boxs')
+    var selectAfter = document.getElementById("selectAfter");
+    var all_options = document.getElementById("inputSubject").options;
+    var showError_h1 = document.getElementById('showError_h1')
+    var showError_p = document.getElementById('showError_p')
+    var showBtnError = document.getElementById('showBtnError')
+    var showMask_h1 = document.getElementById('showMask_h1')
+    var showMask_p = document.getElementById('showMask_p')
+    var showBtn = document.getElementById('showBtn')
+    var is_entrance = document.getElementById('is-entrance')
+    var device = '';
+    var entranced = '';
+    // 创建filerenderapi
+    var reader = new FileReader();
+    // 文件长度
+    var filesNum = 0;
+    // 存储文件数组
+    var filesList = [];
+    // 图片/视频token
+    var token = "";
+    // 图片/视频token arr
+    var tokenArr = [];
+    var languageArr = [];
+
+    //调用这个方法取出链接里面的值
+    function display(optionID) {
+
+        for (var i = 0; i < all_options.length; i++) {
+            // 根据option标签的ID来进行判断
+            if (all_options[i].id == optionID) {
+                all_options[i].selected = true;
+                if (all_options[i].id == 0) {
+                    document.getElementById("inputSubject").disabled = false;
+                } else {
+                    selectAfter.classList.add("classAfter")
+                    document.getElementById("inputSubject").disabled = true;
+                }
+            }
+        }
+    };
+    if (linkParameters) {
+        if (linkParameters.device) {
+            device = linkParameters.device.toLowerCase();
+        }
+        if (linkParameters.entrance) {
+            entranced = linkParameters.entrance.toLowerCase();
+        }
+        if (linkParameters.name) {
+            iputName.value = linkParameters.name;
+        } else {
+            iputName.value = '';
+        }
+        if (linkParameters.email) {
+            inputEmail.value = linkParameters.email;
+        } else {
+            inputEmail.value = '';
+        }
+        if (linkParameters.subject) {
+            display(linkParameters.subject);
+        }
+    }
+    // 链接跳转
+    if (linkParameters.device == "ios") {
+        languageArr = ['zh', 'fr', 'de', 'it', 'ja', 'es', 'ar'];
+    }
+    if (linkParameters.device == "android") {
+        languageArr = ['zh', 'fr', 'de', 'it', 'ja', 'es'];
+    }
+    if (linkParameters.lang) {
+        var flag = false
+        for (var index = 0; index < languageArr.length; index++) {
+            if (linkParameters.lang == languageArr[index]) {
+                flag = true
+            }
+        }
+        if (flag) {
+            if (linkParameters.lang == "zh") {
+                multilingualDetail.innerText = '详细'
+                multilingualEmail.innerText = '邮箱'
+                multilingualSubject.innerText = '主题'
+                multilingualName.innerText = '姓名'
+                multilingualMedia.innerText = "媒体"
+                multilingualSend.innerText = '发送'
+                multilingualAdd.innerText = '添加媒体'
+
+                iputName.setAttribute("placeholder", "你的名字")
+                inputDetails.setAttribute("placeholder", "请描述一下问题")
+                inputSubject.options[0].innerText = "选择主题"
+
+                show_spanOne.innerText = "最多50个字符"
+                show_spanTwo.innerText = "这里是必填的"
+                email_spanOne.innerText = "最多50个字符"
+                email_spanTwo.innerText = "这里是必填的"
+                email_spanThree.innerText = "无效的邮件地址"
+                subject_spanTwo.innerText = "这里是必填的"
+                details_spanTwo.innerText = "这里是必填的"
+                details_spanOne.innerText = "最多1000个字符"
+                document.getElementById('showMax').innerText = '文件大小不能超过25MB'
+
+                is_entrance.innerText = '你的门铃可能有些问题。请发送信息给我们的客服以便获得更多帮助'
+                showBtnError.innerText = '明白'
+                showError_p.innerText = '由于连接问题，消息未发送，请重试。'
+                showError_h1.innerText = '错误'
+                showBtn.innerText = '完成'
+                showMask_p.innerText = '请注意查看您的邮箱，我们会在24小时内给予回复'
+                showMask_h1.innerText = '信息已发送'
+            } else if (linkParameters.lang == 'fr') {
+                multilingualDetail.innerText = 'détails'
+                multilingualEmail.innerText = 'e-mail'
+                multilingualSubject.innerText = 'thème'
+                multilingualName.innerText = 'nom'
+                multilingualMedia.innerText = "médias"
+                multilingualSend.innerText = 'envoyer'
+                multilingualAdd.innerText = 'ajouter des médias'
+
+                iputName.setAttribute("placeholder", "Votre nom")
+                inputDetails.setAttribute("placeholder", "Veuillez décrire le problème")
+                inputSubject.options[0].innerText = "Sélectionner un thème"
+
+                show_spanOne.innerText = "Jusqu'à 50 caractères"
+                show_spanTwo.innerText = "C'est obligatoire."
+                email_spanOne.innerText = "Jusqu'à 50 caractères"
+                email_spanTwo.innerText = "C'est obligatoire."
+                email_spanThree.innerText = "Adresse électronique non valable"
+                subject_spanTwo.innerText = "C'est obligatoire."
+                details_spanTwo.innerText = "C'est obligatoire."
+                details_spanOne.innerText = "Jusqu'à 1000 caractères"
+
+                document.getElementById('showMax').innerText = 'La taille du fichier ne peut pas dépasser 25 mo'
+
+                is_entrance.innerText = "Il y a peut - être un problème avec votre sonnette. Veuillez envoyer des informations à notre service à la clientèle pour plus d'aide"
+                showBtnError.innerText = "J'ai compris."
+                showError_p.innerText = "Le message n'a pas été envoyé en raison de problèmes de connexion. Veuillez réessayer plus tard."
+                showError_h1.innerText = 'Erreur'
+                showBtn.innerText = 'finir'
+                showMask_p.innerText = 'Veuillez vérifier votre courriel et nous vous répondrons dans les 24 heures.'
+                showMask_h1.innerText = 'Message envoyé'
+            } else if (linkParameters.lang == 'de') {
+                multilingualName.innerText = 'Name'
+                multilingualEmail.innerText = 'E-Mail'
+                multilingualSubject.innerText = 'Betreff '
+                multilingualDetail.innerText = 'Details'
+                multilingualMedia.innerText = "Medien"
+                multilingualSend.innerText = 'Senden'
+                multilingualAdd.innerText = ' Medien hinzufügen'
+
+                iputName.setAttribute("placeholder", "Ihr Name")
+                inputDetails.setAttribute("placeholder", "Bitte beschreiben Sie das Problem")
+                inputSubject.options[0].innerText = "Thema auswählen"
+
+                show_spanOne.innerText = "Maximal 50 Zeichen"
+                show_spanTwo.innerText = "Dies ist erforderlich"
+                email_spanOne.innerText = "Maximal 50 Zeichen"
+                email_spanTwo.innerText = "Dies ist erforderlich"
+                email_spanThree.innerText = "Ungültige E-Mail-Adresse"
+                subject_spanTwo.innerText = "Dies ist erforderlich"
+                details_spanTwo.innerText = "Dies ist erforderlich"
+                details_spanOne.innerText = "Maximal 1000 Zeichen"
+
+                document.getElementById('showMax').innerText = 'Dateigröße darf nicht größer als 25MB sein'
+
+                is_entrance.innerText = "Vielleicht stimmt etwas nicht mit Ihrer Türklingel. Bitte senden Sie eine Nachricht an unseren Kundenservice für weitere Informationen."
+                showBtnError.innerText = "Hab's"
+                showError_p.innerText = "Nachricht wurde aufgrund von Verbindungsproblemen nicht gesendet. Bitte versuchen Sie es später noch einmal"
+                showError_h1.innerText = "Fehler"
+                showBtn.innerText = 'законч'
+                showMask_p.innerText = 'Bitte überprüfen Sie Ihre E-Mail-Box wir, wir antworten in 24-Stunden'
+                showMask_h1.innerText = 'Nachricht gesendet'
+            } else if (linkParameters.lang == 'it') {
+                multilingualName.innerText = 'nome'
+                multilingualEmail.innerText = 'email'
+                multilingualSubject.innerText = 'oggetto'
+                multilingualDetail.innerText = 'dettagli'
+                multilingualMedia.innerText = "media"
+                multilingualSend.innerText = 'invia'
+                multilingualAdd.innerText = 'Aggiungi supporto'
+
+                iputName.setAttribute("placeholder", "Il tuo nome")
+                inputDetails.setAttribute("placeholder", "Descrivi il problema")
+                inputSubject.options[0].innerText = "Seleziona tema"
+
+                show_spanOne.innerText = "Massimo 50 caratteri"
+                show_spanTwo.innerText = "Questo è necessario"
+                email_spanOne.innerText = "Massimo 50 caratteri"
+                email_spanTwo.innerText = "Questo è necessario"
+                email_spanThree.innerText = "Indirizzo email non valido"
+                subject_spanTwo.innerText = "Questo è necessario"
+                details_spanTwo.innerText = "Questo è necessario"
+                details_spanOne.innerText = "Massimo 1000 caratteri"
+
+                document.getElementById('showMax').innerText = 'La dimensione del file non può essere maggiore di 25MB'
+
+                is_entrance.innerText = "Potrebbe esserci qualcosa che non va al tuo campanello. Si prega di inviare un messaggio al nostro servizio clienti per più assistente"
+                showBtnError.innerText = "Ho capito"
+                showError_p.innerText = "Messaggio non inviato a causa di problemi di connessione. Riprova più tardi"
+                showError_h1.innerText = 'Errore'
+                showBtn.innerText = 'Fine'
+                showMask_p.innerText = 'Si prega di controllare la vostra casella di posta elettronica noi, risponderemo in 24 ore'
+                showMask_h1.innerText = 'Messaggio inviato'
+            } else if (linkParameters.lang == 'ja') {
+                multilingualName.innerText = 'なまえ'
+                multilingualEmail.innerText = 'メール'
+                multilingualSubject.innerText = 'ひしゃたい'
+                multilingualDetail.innerText = 'しょーさい'
+                multilingualMedia.innerText = "メディア"
+                multilingualSend.innerText = 'そーしん'
+                multilingualAdd.innerText = ' ついかメディア'
+
+                iputName.setAttribute("placeholder", "お名前")
+                inputDetails.setAttribute("placeholder", "問題を説明してください。")
+                inputSubject.options[0].innerText = "トピックの選択"
+
+                show_spanOne.innerText = "最大50文字"
+                show_spanTwo.innerText = "ここは必須です"
+                email_spanOne.innerText = "最大50文字"
+                email_spanTwo.innerText = "ここは必須です"
+                email_spanThree.innerText = "無効なメールアドレス"
+                subject_spanTwo.innerText = "ここは必須です"
+                details_spanTwo.innerText = "ここは必須です"
+                details_spanOne.innerText = "最大1000文字"
+                document.getElementById('showMax').innerText = 'ファイルサイズは25 MB'
+
+                is_entrance.innerText = 'あなたの玄関で何か悪いことがあるかもしれません。より多くのアシスタントのために我々の顧客サービスにメッセージを送ってください'
+                showBtnError.innerText = '得た'
+                showError_p.innerText = 'メッセージの接続の問題のために送信されません。後でもう一度試してください'
+                showError_h1.innerText = 'エラー'
+                showBtn.innerText = 'かんせい'
+                showMask_p.innerText = 'あなたのメールボックスをチェックしてください'
+                showMask_h1.innerText = 'メッセージが送信されました'
+            } else if (linkParameters.lang == 'es') {
+                multilingualName.innerText = 'nombre'
+                multilingualEmail.innerText = 'Correo electrónico'
+                multilingualSubject.innerText = 'tema'
+                multilingualDetail.innerText = 'detalles'
+                multilingualMedia.innerText = "Medios de comunicación"
+                multilingualSend.innerText = 'enviar'
+                multilingualAdd.innerText = 'Añadir contenido multimedia '
+
+                iputName.setAttribute("placeholder", "Tu nombre")
+                inputDetails.setAttribute("placeholder", "Por favor, describa el problema")
+                inputSubject.options[0].innerText = "Seleccionar Tema"
+
+                show_spanOne.innerText = "Hasta 50 caracteres"
+                show_spanTwo.innerText = "Esto es obligatorio"
+                email_spanOne.innerText = "Hasta 50 caracteres"
+                email_spanTwo.innerText = "Esto es obligatorio"
+                email_spanThree.innerText = "Dirección de correo electrónico no válida"
+                subject_spanTwo.innerText = "Esto es obligatorio"
+                details_spanTwo.innerText = "Esto es obligatorio"
+                details_spanOne.innerText = "Hasta 1000 caracteres"
+
+                document.getElementById('showMax').innerText = 'El tamaño del archivo no puede ser mayor de 25 MB'
+
+                is_entrance.innerText = 'Puede haber un problem a con tu timbre. Por favor, envíe información a nuestro Departamento de atención al cliente para obtener más ayuda'
+                showBtnError.innerText = 'Lo tengo.'
+                showError_p.innerText = 'El mensaje no fue enviado debido a problemas de conexión. Por favor, inténtalo de nuevo más tarde.'
+                showError_h1.innerText = 'Error'
+                showBtn.innerText = 'Terminar'
+                showMask_p.innerText = 'Por favor, compruebe su correo electrónico y responderemos en 24 horas.'
+                showMask_h1.innerText = 'Mensaje enviado'
+            }
+        }
+    }
+    // 隐藏头部开头
+    if (entranced == "adddevice") {
+        document.getElementById('is-entrance').style.display = "block";
+    } else {
+        document.getElementById('is-entrance').style.display = "none";
+    }
+    // 隐藏头部结尾
+
+    // 点击上传
+    // 获取上传文件token
+    function updateFile(files) {
+        document.getElementById('loading_done').style.display = 'block';
+        var file = files[0];
+
+        var urlname = file.name.slice(0, file.name.lastIndexOf('.'));
+        var urltype = file.name.slice(file.name.lastIndexOf('.') + 1);
+
+        var aBlob = new Blob([files[0]], { urltype: 'video/mp4' });
+        var updatereader = new FileReader(); // 没有参数
+        updatereader.readAsArrayBuffer(file);
+        updatereader.onload = function () {
+            var url = "https://nooiecs.zendesk.com/api/v2/uploads?filename=" + urlname + "." + urltype;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+
+            xhr.setRequestHeader("Content-Type", "application/binary");
+
+            xhr.onreadystatechange = function (e) {
+                if (xhr.readyState === 4) {
+                    console.log(xhr.status);
+                    console.log(e)
+                    console.log(JSON.parse(xhr.responseText).upload.token);
+                    token = JSON.parse(xhr.responseText).upload.token;
+                    tokenArr.push(token);
+                    setTimeout(function () {
+                        document.getElementById('loading_done').style.display = 'none';
+                    }, 100);
+                }
+            };
+            var data = updatereader.result;
+            xhr.send(data);
+        }
+        /*         updatereader.onload = function () {
+                    fetch("https://nooiecs.zendesk.com/api/v2/uploads?filename=" + urlname + "." + urltype, {
+                        method: 'POST',
+                        body: updatereader.result,
+                        headers: new Headers({
+                            'Content-Type': "application/binary"
+                        })
+                    }).then(function (response) {
+                        document.getElementById('token').innerText = '图片'
+                        return response.json();
+                    }).then(function (result) {
+                        var urll = result.upload.attachment.content_url;
+                        token = result.upload.token;
+                        tokenArr.push(token);
+                        document.getElementById('token').innerText = token
+                        setTimeout(function () {
+                            document.getElementById('loading_done').style.display = 'none';
+                        }, 100);
+                    }).catch(function (error) {
+                        return console.log('error', error);
+                        document.getElementById('token').innerText = error
+                    });
+                }; */
+    }
+    $('.upload-header').on('change', '#upload', function (e) {
+        var files = e.target.files;
+        var fileSize = files[0].size;
+        filesNum = fileSize + filesNum;
+        if (filesNum / 1024 / 1024 > 25) {
+            filesNum = filesNum - fileSize;
+            document.getElementById('showMax').style.display = "block";
+            document.getElementById('upload-header').style.border = "1px solid red";
+        } else {
+            document.getElementById('upload-header').style.border = "dashed";
+            document.getElementById('showMax').style.display = "none";
+            document.getElementById('upload-header').style.borderColor = "#ececec";
+            if (filesList.length < 3) {
+                if (files[0].type == "image/jpeg" || files[0].type == "image/png") {
+                    if (files.length > 0) {
+                        for (var i = 0; i < files.length; i++) {
+                            var img = new Blob([this.files[i]], { type: "image/png" }); //type类型可自定义
+                            var urlimg = URL.createObjectURL(img);
+                            reader.onload = function (e) {
+                                var text = "\n                                <div class=\"img-list\">\n                                    <img src=\"" + urlimg + "\" alt=\"\" class=\"fileimg\">\n                                    <div class=\"del-img\">×\n                                        </div>\n                                </div>\n                                ";
+                                $('.img-box').append(text);
+                            };
+                            reader.readAsDataURL(files[i]);
+                            filesList.push(files[i]);
+                        };
+                    };
+                    updateFile(files);
+                } else if (files[0].type == "video/mp4" || files[0].type == "video/quicktime") {
+
+                    if (files.length > 0) {
+                        for (var i = 0; i < files.length; i++) {
+                            var uploadvideo = new Blob([this.files[i]], { type: "video/quicktime" }); //type类型可自定义
+                            var urlvideo = URL.createObjectURL(uploadvideo);
+                            reader.onload = function (e) {
+                                var text = "\n                                <div class=\"img-list\">\n                                    <video  class=\"video_box\"  id=\"video\"  playsinline=\"true\" autoplay>\n                    <source src=\"" + urlvideo + "\">\n                                    </video>\n                                    <div class=\"del-img\">\n                                        ×\n                                </div>\n                                <div class=\"zeizhang\"></div>\n                                ";
+                                $('.img-box').append(text);
+
+                                //调取getVideoBase64  获取图片的路径
+                                // 利用async...await...来进行获取
+                            };
+                            reader.readAsDataURL(files[i]);
+                            filesList.push(files[i]);
+                        };
+                    };
+                    updateFile(files);
+                } else {
+                    console.log("支持格式：jpg/png/mp4");
+                }
+                var leftNum = (48 + 10) * filesList.length;
+                document.getElementById("centerBox").style.display = "none";
+                document.getElementById("leftBox").style.display = "block";
+                if (filesList.length >= 3) {
+                    document.getElementById('leftBox').style.display = "none";
+                }
+            } else {
+                console.log(1);
+            }
+        }
+    });
+    // 删除文件
+    $('.img-box').on('click', '.del-img', function () {
+        var index = $(this).parent().index();
+        $(this).parent().remove();
+        filesList.splice(index, 1);
+        tokenArr.splice(index, 1);
+        console.log(tokenArr);
+        if (filesList.length <= 2) {
+            document.getElementById('leftBox').style.display = "block";
+            if (filesList.length <= 0) {
+                document.getElementById('leftBox').style.display = "none";
+                document.getElementById('centerBox').style.display = "block";
+            }
+        }
+    });
+
+    // 校验Name'
+    function inputNamefunction() {
+        var inputNamelength = iputName.value.length;
+        show_spanTwo.style.display = "none";
+        show_spanOne.style.display = "none";
+        iputName.style.borderColor = "#fff";
+        if (inputNamelength > 50) {
+            show_spanOne.style.display = "block";
+            iputName.style.borderColor = "red";
+            return 1;
+        } else if (iputName.value == "") {
+            iputName.style.borderColor = "red";
+            show_spanTwo.style.display = "block";
+            return 1;
+        }
+    }
+    $("#iputName").blur(function () {
+        inputNamefunction();
+    });
+    // 校验邮箱
+    function inputEmailfunction() {
+        var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+        var inputEmaillength = inputEmail.value.length;
+        email_spanOne.style.display = "none";
+        email_spanTwo.style.display = "none";
+        email_spanThree.style.display = "none";
+        inputEmail.style.borderColor = "#fff";
+        if (inputEmaillength > 50) {
+            email_spanOne.style.display = "block";
+            inputEmail.style.borderColor = "red";
+            return 1;
+        } else if (inputEmail.value == "") {
+            email_spanTwo.style.display = "block";
+            inputEmail.style.borderColor = "red";
+            return 1;
+        } else if (!reg.test(inputEmail.value)) {
+            email_spanThree.style.display = "block";
+            inputEmail.style.borderColor = "red";
+            return 1;
+        }
+    }
+    $('#inputEmail').blur(function () {
+        inputEmailfunction();
+    });
+    // 校验1下拉框
+    $("#inputSubject").change(function (e) {
+        console.log(e.target.value)
+    })
+    function inputSubjects() {
+        if (inputSubject.value == "Select Subject" || inputSubject.value == "选择主题" || inputSubject.value == "Sélectionner un thème" || inputSubject.value == "Sélectionner un thème" || inputSubject.value == "Thema auswählen" || inputSubject.value == "Seleziona tema" || inputSubject.value == "トピックの選択" || inputSubject.value == "Seleccionar Tema") {
+            subject_spanTwo.style.display = "none";
+            inputSubject.style.borderColor = "red";
+            return 1;
+        } else {
+            subject_spanTwo.style.display = "none";
+            inputSubject.style.borderColor = "#fff";
+        }
+
+        if (inputSubject.value == "") {
+            subject_spanTwo.style.display = "none";
+            inputSubject.style.borderColor = "red";
+            return 1;
+        } else {
+            subject_spanTwo.style.display = "none";
+            inputSubject.style.borderColor = "#fff";
+        }
+    }
+    $('#inputSubject').blur(function () {
+        inputSubjects();
+    });
+    function inputDetailss() {
+        var str = inputDetails.value.replace(/(^\s*)|(\s*$)/g, '');
+        if (str == undefined || str == null) {
+            inputDetails.style.borderColor = "red";
+            document.getElementById('details_spanTwo').style.display = "block";
+            return 1;
+        }
+        if (inputDetails.value == "") {
+            inputDetails.style.borderColor = "red";
+            document.getElementById('details_spanTwo').style.display = "block";
+            return 1;
+        } else {
+            inputDetails.style.borderColor = "#fff";
+            document.getElementById('details_spanTwo').style.display = 'none';
+        }
+        if (inputDetails.value.length > 1000) {
+            inputDetails.style.borderColor = "red";
+            document.getElementById('details_spanOne').style.display = "block";
+            return 1;
+        } else {
+            document.getElementById('details_spanOne').style.display = "none";
+            inputDetails.style.borderColor = "#fff";
+        }
+        // return 1;
+    }
+    // 校验文本框
+    $('#inputDetails').blur(function () {
+        inputDetailss();
+    });
+    // send 
+    function dosth(data) {
+        data.request.comment.uploads = tokenArr;
+
+        var url = "https://nooiecs.zendesk.com/api/v2/requests.json"
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Authorization", "Basic Y3NAbm9vaWUuY29tL3Rva2VuOmhmM0o3M0RLYjFiNGVQSnIxTU5PNFRtRHNTZWdDN3IwR0hZNmZycHI=");
+        xhr.onreadystatechange = function (e) {
+            if (xhr.readyState === 4) {
+                if (JSON.parse(xhr.responseText).request && JSON.parse(xhr.responseText).request.requester_id) {
+                    if (device == 'ios' || device == 'android') {
+                        if (device == "android") {
+                            javascript: feedback.onFeedbackSuccess();
+                        } else if (device == "ios") {
+                            window.webkit.messageHandlers.feedback.postMessage({ funcName: 'onFeedbackSuccess' });
+                        }
+                    } else {
+                        document.getElementById('showMask').style.display = "block";
+                    }
+                } else {
+                    document.getElementById('showError').style.display = "block";
+                    if (device == 'ios' || device == 'android') {
+                        if (device == "android") {
+                            javascript: feedback.onFeedbackFail();
+                        } else if (device == "ios") {
+                            window.webkit.messageHandlers.feedback.postMessage({ funcName: 'onFeedbackFail' });
+                        }
+                    }
+                }
+                document.getElementById('loading_done').style.display = 'none';
+            }
+        };
+        xhr.send(JSON.stringify(data));
+
+        /*  fetch('https://nooiecs.zendesk.com/api/v2/requests.json', {
+             method: 'POST', // or 'PUT'
+             body: JSON.stringify(data), // data can be `string` or {object}!
+             headers: new Headers({
+                 'Content-Type': 'application/json',
+                 'Authorization': 'Basic Y3NAbm9vaWUuY29tL3Rva2VuOmhmM0o3M0RLYjFiNGVQSnIxTU5PNFRtRHNTZWdDN3IwR0hZNmZycHI='
+             })
+         }).then(function (response) {
+             return response.json();
+         }).then(function (data) {
+             if (data.request && data.request.requester_id) {
+                 if (device == 'ios' || device == 'android') {
+                     if (device == "android") {
+                         javascript: feedback.onFeedbackSuccess();
+                     } else if (device == "ios") {
+                         window.webkit.messageHandlers.feedback.postMessage({ funcName: 'onFeedbackSuccess' });
+                     }
+                 } else {
+                     document.getElementById('showMask').style.display = "block";
+                 }
+             } else {
+                 document.getElementById('showError').style.display = "block";
+                 if (device == 'ios' || device == 'android') {
+                     if (device == "android") {
+                         javascript: feedback.onFeedbackFail();
+                     } else if (device == "ios") {
+                         window.webkit.messageHandlers.feedback.postMessage({ funcName: 'onFeedbackFail' });
+                     }
+                 }
+             }
+             document.getElementById('loading_done').style.display = 'none';
+         }); */
+    }
+    multilingualSend.onclick = function () {
+        var fromData = {
+            "request": {
+                "requester": {
+                    "name": iputName.value,
+                    "email": inputEmail.value
+                },
+                "subject": "[" + inputSubject.value + "] " + iputName.value,
+                "comment": {
+                    "subject": inputSubject.value,
+                    "description": inputDetails.value,
+                    "html_body": "<div>\n                    <p style=\"margin-bottom: 50px;color:#000\">" + inputDetails.value + "</p>\n                    <p style=\"color:#000\">Sent from <span style=\"margin-left: 20px;\">" + (linkParameters.device || 'H5') + "</span></p>\n                </div>"
+                }
+            }
+        };
+
+        var res = inputNamefunction();
+        var res1 = inputEmailfunction();
+        var res2 = inputDetailss();
+        var res3 = inputSubjects();
+
+        if (res !== 1 && res2 !== 1 && res3 !== 1 && res1 !== 1) {
+            if (device == 'ios' || device == 'android') {
+                if (device == "android") {
+                    javascript: feedback.onFeedbackStart();
+                }
+                if (device == "ios") {
+                    window.webkit.messageHandlers.feedback.postMessage({ funcName: 'onFeedbackStart' });
+                }
+            } else {
+                document.getElementById('loading_done').style.display = 'block';
+                console.log(1);
+            }
+            dosth(fromData);
+        }
+    }
+    // $(document).on("click  ", ".form_btn", function () {
+
+
+    // });
+    // IOS方法
+    function onFeedbackCheckResult(result) {
+        if (result !== '0') {
+            document.getElementById('upload').click();
+        }
+    }
+    function loadURL(url) {
+        var iFrame;
+        iFrame = document.createElement("iframe");
+        iFrame.setAttribute("src", url);
+        iFrame.setAttribute("style", "display:none;");
+        iFrame.setAttribute("height", "0px");
+        iFrame.setAttribute("width", "0px");
+        iFrame.setAttribute("frameborder", "0");
+        document.body.appendChild(iFrame);
+        iFrame.parentNode.removeChild(iFrame);
+        iFrame = null;
+    }
+    //         
+    function onFeedbackCheckAuthorization() {
+        if (0) {
+            window.webkit.messageHandlers.feedback.postMessage({ funcName: 'onFeedbackStart' });
+        } else {
+            window.webkit.messageHandlers.feedback.postMessage({ funcName: 'onFeedbackCheckAuthorization' });
+        }
+    }
+    document.getElementById('text_box').onclick = function () {
+        if (linkParameters.device == 'ios') {
+            onFeedbackCheckAuthorization();
+        } else {
+            document.getElementById('upload').click();
+        }
+    };
+    // 失焦回到顶部
+    if (linkParameters.device == 'android') {
+        $("#inputDetails").focus(function () {
+            window.scrollTo(0, 500);
+
+        });
+    }
+    //苹果回弹背景
+    var boo = true;
+    $("input").focus(function () {
+        boo = false;
+        setTimeout(function () {
+            boo = true;
+        }, 20);
+    });
+    $("input").blur(function () {
+        setTimeout(function () {
+            if (boo) {
+                $('html,body').animate({ scrollTop: 0 }, 0);
+            }
+        }, 10);
+    });
+    // 遮罩消失
+    document.getElementById('showBtnError').onclick = function () {
+        document.getElementById('showError').style.display = "none";
+    };
+    document.getElementById('showBtn').onclick = function () {
+        document.getElementById('showMask').style.display = "none";
+        history.go(-1)
+    };
+</script>
