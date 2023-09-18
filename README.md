@@ -6,10 +6,6 @@ react-native 第三方库的使用方法和效果展示，提供三方库的快�
 
 ## 1.部分功能展示
 
-<!-- ![拾色器](./doc/src/images/841695023709_.pic.jpg)
-![拾色器](./doc/src/images/851695023710_.pic.jpg)
-![拾色器](./doc/src/images/861695023712_.pic.jpg)
-![拾色器](./doc/src/images/871695023714_.pic.jpg) -->
 <img width="200px" src="./doc/src/images/841695023709_.pic.jpg" alt="图片描述">
 <img  width="200px" src="./doc/src/images/851695023710_.pic.jpg" alt="图片描述">
 <img  width="200px" src="./doc/src/images/861695023712_.pic.jpg" alt="图片描述">
